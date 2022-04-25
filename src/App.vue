@@ -1,32 +1,36 @@
+<!--模板，html结构 -->
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <app-header></app-header>
+    <!-- 根标签，有且只有一个，不能将内容写在标签之外 -->
+    <users></users>
+    <app-footer></app-footer>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<!--行为，处理逻辑 -->
+<script>
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  data(){
+    return{
+      title:"vue练习"
     }
+  },
+  components:{
+    "app-header":Header,
+    "app-footer":Footer
   }
 }
+</script>
+
+<!--样式，解决样式 -->
+<style scoped>
+/* scoped定义局部样式 */
+  h1{
+    color:red;
+  }
 </style>
